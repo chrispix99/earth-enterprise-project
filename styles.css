@@ -1,0 +1,233 @@
+:root {
+  --paper: #f7f3ea;
+  --paper-deep: #efe8d8;
+  --ink: #2a2620;
+  --ink-soft: #5c554a;
+  --accent: #2e5d3f;
+  --gold: #a8842c;
+  --line: #ddd3bd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+}
+
+.hero {
+  text-align: center;
+  padding: 4.5rem 1.5rem 3.5rem;
+  background: linear-gradient(180deg, var(--paper-deep), var(--paper));
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0 0 1rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.memorial, .manuscript-intro {
+  max-width: 44rem;
+  margin: 3rem auto;
+}
+
+.memorial h2, .manuscript-intro h2 {
+  font-weight: normal;
+  font-size: 1.9rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.memorial p, .manuscript-intro p, .doc-desc {
+  font-size: 1.08rem;
+}
+
+a { color: var(--accent); }
+
+.doc {
+  margin: 3.5rem 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.doc h3 {
+  font-weight: normal;
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+}
+
+.count {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.8rem;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+
+.doc-desc { color: var(--ink-soft); max-width: 52rem; }
+
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.chapters button {
+  font-family: inherit;
+  font-size: 0.92rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.chapters button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.thumb {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.4rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(42, 38, 32, 0.15);
+}
+
+.thumb img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 2px;
+  background: var(--paper-deep);
+}
+
+.thumb span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.4rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  padding: 2.5rem 1.5rem 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 14, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox figure {
+  margin: 0;
+  max-width: min(92vw, 900px);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.lightbox figcaption {
+  color: #e9e2d2;
+  padding: 0.8rem 0.2rem 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#lb-num { color: #a89e86; white-space: nowrap; }
+
+.lightbox button {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #e9e2d2;
+  font-size: 2.6rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  line-height: 1;
+}
+
+.lb-close { top: 0.5rem; right: 0.8rem; }
+.lb-prev { left: 0.4rem; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 0.4rem; top: 50%; transform: translateY(-50%); }
+.lightbox button:hover { color: #fff; }
+
+@media (max-width: 600px) {
+  .lb-prev { left: 0; }
+  .lb-next { right: 0; }
+}
